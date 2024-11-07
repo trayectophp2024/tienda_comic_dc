@@ -65,6 +65,32 @@
             return $result;
         }
 
+
+        /* Metodo para insertar nuevo personaje */
+
+        public function insert($nombre,$alias,$creador,$primera_aparicion, $biografia,$imagen){
+            
+            $conexion = (new Conexion())->getConexion();
+
+            $query= "INSERT INTO personajes(id,nombre,alias,biografia,creador,primera_aparicion,imagen) 
+                     VALUES (NULL,:nombre,:alias,:biografia,:creador, :primera_aparicion,:imagen )";
+
+            $PDOStatment = $conexion->prepare($query);
+
+            $PDOStatment->execute(
+                [
+                    'nombre' => $nombre,
+                    'alias'  => $alias,
+                    'biografia' => $biografia,
+                    'creador' => $creador,
+                    'primera_aparicion' => $primera_aparicion,
+                    'imagen' => $imagen
+                ]
+            );
+
+
+        }
+
         
 
       
