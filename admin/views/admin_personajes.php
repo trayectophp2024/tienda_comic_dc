@@ -36,7 +36,7 @@ $personajes = (new Personaje())->lista_completa();
                         <td><?=  $p->getPrimera_aparicion() ?></td>
                         <td><?=  $p->getBiografia() ?></td>
                         <td>
-                            <a class="btn btn-warning" href="">Editar</a>
+                            <a class="btn btn-warning" href="index.php?sec=edit_personajes&id=<?= $p->getId() ?>">Editar</a>
                         </td>
                     </tr>
 

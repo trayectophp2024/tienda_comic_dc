@@ -17,6 +17,9 @@ $secciones_validas = [
      ],
      "add_personajes" => [
       "titulo" => "Agregar Personajes"
+     ],
+     "edit_personajes" => [
+      "titulo" => "Editar Personajes"
     ]
     
      
@@ -37,18 +40,6 @@ $secciones_validas = [
      $vista= $seccion;
      $titulo = $secciones_validas[$seccion]['titulo'];
   }
-
-
-
-  
-
-
-  
-  
-
-
- 
-
 
 ?>
 
