@@ -1,11 +1,7 @@
 <?php
   
-  require_once "../classes/Conexion.php";
-  require_once "../classes/Comic.php";
-  require_once "../classes/Guionista.php";
-  require_once "../classes/Artista.php";
-  require_once "../classes/Serie.php";
-  require_once "../classes/Personaje.php";
+  require_once "../functions/autoload.php";
+
 
 
 $secciones_validas = [
@@ -20,7 +16,18 @@ $secciones_validas = [
      ],
      "edit_personajes" => [
       "titulo" => "Editar Personajes"
+     ],
+     "delete_personajes" => [
+      "titulo" => "Eliminar Personajes"
+     ],
+     "admin_comics" => [
+      "titulo" => "Administracion de Comics"
+     ],
+     "add_comic" => [
+      "titulo" => "Agregar Comic"
     ]
+    
+    
     
      
 ];
@@ -72,6 +79,9 @@ $secciones_validas = [
         </li>
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="index.php?sec=admin_personajes">Admin de Personajes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="index.php?sec=admin_comics">Admin de Comics</a>
         </li>
       
         </ul>

@@ -15,6 +15,7 @@ $personajes = (new Personaje())->lista_completa();
             <table class="table">
                 <thead>
                     <tr>
+                        <th scope="col">Imagen</th>
                         <th scope="col">ID</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Alias</th>
@@ -29,6 +30,7 @@ $personajes = (new Personaje())->lista_completa();
                 <?php  foreach($personajes as $p){  ?>
 
                     <tr>
+                        <td><img src="../img/personajes/<?=  $p->getImagen() ?>" class="img-fluid rounded" alt=""></td>
                         <th scope="row"><?=  $p->getId() ?></th>
                         <td><?=  $p->getNombre() ?></td>
                         <td><?=  $p->getAlias() ?></td>
@@ -37,6 +39,8 @@ $personajes = (new Personaje())->lista_completa();
                         <td><?=  $p->getBiografia() ?></td>
                         <td>
                             <a class="btn btn-warning" href="index.php?sec=edit_personajes&id=<?= $p->getId() ?>">Editar</a>
+
+                            <a class="btn btn-danger mt-2" href="index.php?sec=delete_personajes&id=<?= $p->getId() ?>">Eliminar</a>
                         </td>
                     </tr>
 

@@ -5,6 +5,27 @@
     protected $biografia;
     protected $foto_perfil;
 
+
+     //devolver el listado completo de los artista
+
+     public function lista_completa(): array
+     {
+         $resultado = [];
+ 
+         $conexion = (new Conexion())->getConexion();
+ 
+         $query = "SELECT * FROM artistas";
+ 
+         $PDOStatment = $conexion->prepare($query);
+ 
+         $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+         $PDOStatment->execute();
+ 
+         $resultado = $PDOStatment->fetchAll();
+ 
+         return $resultado;
+     }
+
     
         // devuelve los datos de un artista en particular 
         public function get_x_id(int $id) {

@@ -1,11 +1,6 @@
 <?php
   
-  require_once "classes/Conexion.php";
-  require_once "classes/Comic.php";
-  require_once "classes/Guionista.php";
-  require_once "classes/Artista.php";
-  require_once "classes/Serie.php";
-  require_once "classes/Personaje.php";
+ require_once 'functions/autoload.php';
 
 
 $secciones_validas = [

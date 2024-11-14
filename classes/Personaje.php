@@ -94,6 +94,64 @@ class Personaje
         );
     }
 
+    /* metodo para editar un personaje  */
+
+    public function edit($nombre, $alias, $creador, $primera_aparicion, $biografia, $id)
+    {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "UPDATE personajes SET nombre = :nombre, alias = :alias, biografia = :biografia, creador = :creador, primera_aparicion = :primera_aparicion WHERE id = :id";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute(
+            [
+                'id' => $id,
+                'nombre' => $nombre,
+                'alias'  => $alias,
+                'biografia' => $biografia,
+                'creador' => $creador,
+                'primera_aparicion' => $primera_aparicion,
+                
+            ]
+        );
+    }
+
+    /* Metodo Reemplazar Imagen */
+
+    public function reemplazar_imagen($imagen, $id)
+    {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "UPDATE personajes SET imagen = :imagen WHERE id = :id";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute(
+            [
+                'id' => $id,
+                'imagen' => $imagen
+                
+            ]
+        );
+    }
+
+    /* Borrar Imagen  */
+
+    public function delete() {
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "DELETE FROM personajes WHERE id  = ?";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute([$this->id]);
+    }
+
+    
+
 
 
  /**

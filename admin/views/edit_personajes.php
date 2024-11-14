@@ -23,8 +23,14 @@
                             <input type="text" class="form-control" name="alias" id="nombre" value="<?= $personaje->getAlias() ?>" required>
                         </div>
 
-                        <div class="col-6 mb-3">
-                            <label class="form-label" for="imagen">Imagen:</label>
+                        <div class="col-2 mb-3">
+                            <label class="form-label" for="imagen">Imagen Actual:</label>
+                            <img width="150px" src="../img/personajes/<?= $personaje->getImagen() ?>" alt="" class="img-fluid">
+                            <input type="hidden" class="form-control" name="imagen_og" id="imagen_og" value="<?= $personaje->getImagen() ?>">
+                        </div>
+
+                        <div class="col-4 mb-3">
+                            <label class="form-label" for="imagen">Reemplazar Imagen:</label>
                             <input type="file" class="form-control" name="imagen" id="imagen">
                         </div>
 

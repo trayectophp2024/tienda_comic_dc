@@ -1,16 +1,34 @@
 <?php
 
-    require_once "../../classes/Conexion.php";
-    require_once "../../classes/Personaje.php";
+    require_once "../../functions/autoload.php";
+   
 
     $postData = $_POST;
 
-    echo "<pre>";
-     print_r($postData);
+    $fileData = $_FILES['imagen'];
+
+
+ /*    echo "<pre>";
+    print_r($fileData);
     echo "</pre>";
+ */
+
+/*   echo time();
+
+
+    die(); */ 
+
+    /*     echo "<pre>";
+     print_r($postData);
+    echo "</pre>"; */
+
+
 
     try {
-        (new Personaje())->insert($postData['nombre'],$postData['alias'],$postData['creador'],$postData['primera_aparicion'],$postData['bio'], '');
+
+        $imagen = (new Imagen())->subirImagen(__DIR__ . "/../../img/personajes", $fileData);
+
+        (new Personaje())->insert($postData['nombre'],$postData['alias'],$postData['creador'],$postData['primera_aparicion'],$postData['bio'], $imagen);
 
         header("Location: ../index.php?sec=admin_personajes");
     } catch (\Exception $e) {

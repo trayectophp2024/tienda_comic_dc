@@ -4,6 +4,26 @@
         protected $nombre;
         protected $historia;
 
+        //devolver el listado completo de series
+
+    public function lista_completa(): array
+    {
+        $resultado = [];
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "SELECT * FROM series";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->setFetchMode(PDO::FETCH_CLASS, self::class);
+        $PDOStatment->execute();
+
+        $resultado = $PDOStatment->fetchAll();
+
+        return $resultado;
+    }
+
          // devuelve los datos de una serie en particular 
          public function get_x_id(int $id) {
             
