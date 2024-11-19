@@ -48,6 +48,86 @@
         );
     }
 
+    /* Editar un Comic */
+
+    public function edit($titulo, $volumen, $numero, $publicacion, $origen, $editorial, $bajada, $precio,$id_personaje, $id_serie, $id_guionista, $id_artista, $id)
+    {
+
+   $conexion = (new Conexion())->getConexion();
+
+   $query = "UPDATE comics SET
+        titulo = :titulo,
+        volumen = :volumen,
+        numero = :numero,
+        publicacion = :publicacion,
+        origen = :origen,
+        editorial = :editorial,
+        bajada    = :bajada,
+        precio = :precio,
+        id_personaje = :id_personaje,
+        id_serie = :id_serie,
+        id_guionista = :id_guionista,
+        id_artista = :id_artista
+        WHERE id = :id    
+   ";
+
+   $PDOStatment = $conexion->prepare($query);
+
+   $PDOStatment->execute(
+       [
+           'id' => $id,
+           'titulo' => $titulo,
+           'volumen' => $volumen,
+           'numero' => $numero,
+           'publicacion' => $publicacion,
+           'origen' => $origen,
+           'editorial' => $editorial,
+           'bajada' => $bajada,
+           'precio' => $precio,
+           'id_personaje' => $id_personaje,
+           'id_serie' => $id_serie,
+           'id_guionista' => $id_guionista,
+           'id_artista' => $id_artista
+     ]
+   );
+}
+
+
+ /* Metodo Reemplazar Imagen del Comic */
+
+ public function reemplazar_imagen($imagen, $id)
+ {
+
+     $conexion = (new Conexion())->getConexion();
+
+     $query = "UPDATE comics SET portada = :portada WHERE id = :id";
+
+     $PDOStatment = $conexion->prepare($query);
+
+     $PDOStatment->execute(
+         [
+             'id' => $id,
+             'portada' => $imagen
+             
+         ]
+     );
+ }
+
+ /* Borrar  Comic  */
+
+ public function delete() {
+     $conexion = (new Conexion())->getConexion();
+
+     $query = "DELETE FROM comics WHERE id  = ?";
+
+     $PDOStatment = $conexion->prepare($query);
+
+     $PDOStatment->execute([$this->id]);
+ }
+
+ 
+
+
 
     
 

@@ -138,7 +138,7 @@ class Personaje
         );
     }
 
-    /* Borrar Imagen  */
+    /* Borrar Personaje  */
 
     public function delete() {
         $conexion = (new Conexion())->getConexion();
