@@ -18,6 +18,39 @@
         protected $id_artista;
 
         //Metodos
+        /* Metodo para insertar un nuevo Comic en la BD */
+
+        public function insert($titulo, $volumen, $numero, $publicacion, $origen, $editorial, $bajada, $portada,$precio,$id_personaje, $id_serie, $id_guionista, $id_artista)
+         {
+
+        $conexion = (new Conexion())->getConexion();
+
+        $query = "INSERT INTO comics VALUES(null, :titulo, :volumen,:numero,:publicacion,:origen,:editorial,:bajada,:portada,:precio, :id_personaje,id_serie, :id_guionista, :id_artista)";
+
+        $PDOStatment = $conexion->prepare($query);
+
+        $PDOStatment->execute(
+            [
+                'titulo' => $titulo,
+                'volumen' => $volumen,
+                'numero' => $numero,
+                'publicacion' => $publicacion,
+                'origen' => $origen,
+                'editorial' => $editorial,
+                'bajada' => $bajada,
+                'portada' => $portada,
+                'precio' => $precio,
+                'id_personaje' => $id_personaje,
+                'id_serie' => $id_serie,
+                'id_guionista' => $id_guionista,
+                'id_artista' => $id_artista
+          ]
+        );
+    }
+
+
+
+     
         // Devuelve el catologo Completo
         public function catalogo_completo(): array {
                $catalogo= [];
