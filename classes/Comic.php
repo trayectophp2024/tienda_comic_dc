@@ -25,7 +25,7 @@
 
         $conexion = (new Conexion())->getConexion();
 
-        $query = "INSERT INTO comics VALUES(null, :titulo, :volumen,:numero,:publicacion,:origen,:editorial,:bajada,:portada,:precio, :id_personaje,id_serie, :id_guionista, :id_artista)";
+        $query = "INSERT INTO comics VALUES(null, :titulo, :volumen,:numero,:publicacion,:origen,:editorial,:bajada,:portada,:precio, :id_personaje,:id_serie, :id_guionista, :id_artista)";
 
         $PDOStatment = $conexion->prepare($query);
 
@@ -47,6 +47,10 @@
           ]
         );
     }
+
+
+    
+
 
 
 
