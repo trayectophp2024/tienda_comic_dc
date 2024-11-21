@@ -73,6 +73,8 @@
 
    $PDOStatment = $conexion->prepare($query);
 
+   
+
    $PDOStatment->execute(
        [
            'id' => $id,
@@ -129,13 +131,7 @@
 
 
 
-    
-
-
-
-
-     
-        // Devuelve el catologo Completo
+// Devuelve el catologo Completo
         public function catalogo_completo(): array {
                $catalogo= [];
                

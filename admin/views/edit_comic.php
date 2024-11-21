@@ -94,7 +94,7 @@
                                 <option value="" selected disabled>Elija una opcion</option>
                                 <option <?=  $comic->getOrigen() == "Estados Unidos" ? "selected" : "" ?> >Estados Unidos</option>
                                 <option <?=  $comic->getOrigen() == "Europa" ? "selected" : "" ?> >Europa</option>
-                                <option <?=  $comic->getOrigen() == "Argentina" ? "selected" : "" ?> >Argentina</option>
+                                <option <?=  $comic->getOrigen() == "Estados Unidos" ? "selected" : "" ?> >Argentina</option>
                             </select>
                         </div>
 

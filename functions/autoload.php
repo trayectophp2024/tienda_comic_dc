@@ -1,5 +1,7 @@
 <?php
 
+    session_start();
+
     function autoloadClases($nombreClase){
 
         //variable magica Dir -> Ruta absoluta -> la carpeta base donde estoy ejecutando

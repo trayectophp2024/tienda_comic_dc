@@ -10,9 +10,9 @@
     $fileData = $_FILES['portada'] ?? FALSE;
 
 
+ /*    var_dump($_POST['id_serie']);
 
-
-
+    die(); */
 
     try {
 
@@ -47,6 +47,7 @@
         );
 
         header("Location: ../index.php?sec=admin_comics");
+        exit;
     } catch (\Exception $e) {
         die("No se pudo editar el Comic".  $e);
     }
