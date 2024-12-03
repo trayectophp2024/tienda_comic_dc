@@ -2,6 +2,10 @@
     <div class="col col-md-5">
          <h1 class="text-center mb-5 fw-bold">Iniciar Sessión</h1>
 
+         <div>
+            <?= (new Alerta())->get_alertas() ?>
+         </div>
+
        
 
          <form class="row g-3" action="actions/auth_login.php" method="POST">

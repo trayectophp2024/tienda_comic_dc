@@ -30,6 +30,8 @@
 
         (new Personaje())->insert($postData['nombre'],$postData['alias'],$postData['creador'],$postData['primera_aparicion'],$postData['bio'], $imagen);
 
+        (new Alerta())->add_alerta("success" , "El personaje se cargo correctamente");
+
         header("Location: ../index.php?sec=admin_personajes");
     } catch (\Exception $e) {
         die("No se pudo cargar el personaje".  $e);
